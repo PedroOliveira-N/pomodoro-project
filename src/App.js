@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+import { useContext } from 'react';
 import './App.css';
+import { CronometroContext, CronometroProvider } from './context/CronometroContext';
+import Timer from './components/Cronometro';
+
+function CycleHistory () {
+  const {cycles} = useContext(CronometroContext)
+
+  return(
+    <div>
+      <h1>Histórico</h1>
+      <ul>
+       {cycles.map((cycle) => (
+        <li key={cycle.id}>
+          [{cycle.timeStamp}] - {cycle.type}
+        </li>
+       ))} 
+      </ul>
+    </div>
+  )
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CronometroProvider>
+      <div>
+        <h1>Pomodoro com Context</h1>
+        <Timer/>
+        <CycleHistory/>
+      </div>
+    </CronometroProvider>
   );
 }
 
