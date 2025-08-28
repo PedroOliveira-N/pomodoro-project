@@ -1,33 +1,20 @@
-import { useContext } from 'react';
 import './App.css';
-import { CronometroContext, CronometroProvider } from './context/CronometroContext';
-import Timer from './components/Cronometro';
-
-function CycleHistory () {
-  const {cycles} = useContext(CronometroContext)
-
-  return(
-    <div>
-      <h1>Histórico</h1>
-      <ul>
-       {cycles.map((cycle) => (
-        <li key={cycle.id}>
-          [{cycle.timeStamp}] - {cycle.type}
-        </li>
-       ))} 
-      </ul>
-    </div>
-  )
-}
+import { CronometroProvider } from './context/CronometroContext';
+import HomePage from './pages/HomePage';
+import PomodoroPage from './pages/PomodoroPage';
+import HistoricoPage from './pages/HistoricoPage';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
     <CronometroProvider>
-      <div>
-        <h1>Pomodoro com Context</h1>
-        <Timer/>
-        <CycleHistory/>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/pomodoro" element={<PomodoroPage />} />
+          <Route path="/historico" element={<HistoricoPage />} />
+        </Routes>
+      </BrowserRouter>
     </CronometroProvider>
   );
 }

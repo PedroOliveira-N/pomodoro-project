@@ -35,9 +35,18 @@ export default function  Timer () {
 
             <h1>{isBreak ? "Hora do Descanso" : "Modo Foco"}</h1>
             <h2>{minutes}:{seconds}</h2>
-            {!isRunning && (
-                <button onClick={startCycle}>Iniciar</button>
-            )}
+                {!isRunning ? (
+                <>
+                    <button onClick={startCycle}>Iniciar</button>
+                    <button disabled>Parar</button>
+                </>
+                ) : (
+                <>
+                    <button disabled>Iniciar</button>
+                    <button onClick={stopCycle}>Parar</button>
+                </>
+                )}
         </div>
     )
 }
+
