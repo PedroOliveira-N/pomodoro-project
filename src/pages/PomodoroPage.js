@@ -10,7 +10,7 @@ export default function PomodoroPage () {
             <div className="nav-links">
                 <nav>
                     <Link to="/"><button className='botao-link'>Início</button></Link>
-                    <a href="/historico"><button className='botao-link'>Histórico</button></a>
+                    <Link to="/historico"><button className='botao-link'>Histórico</button></Link>
                 </nav>
             </div>
         </div>

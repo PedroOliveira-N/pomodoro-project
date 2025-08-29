@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import Header from "../components/Header";
 import { CronometroContext } from "../context/CronometroContext";
+import { Link } from "react-router-dom";
 
 export default function HistoricoPage () {
 
@@ -27,8 +28,8 @@ export default function HistoricoPage () {
             <CycleHistory />
             <div className="nav-links">
                 <nav>
-                    <a href="/"><button className='botao-link'>Início</button></a>
-                    <a href="/pomodoro"><button className='botao-link'>Pomodoro</button></a>
+                    <Link to="/"><button className='botao-link'>Início</button></Link>
+                    <Link to="/pomodoro"><button className='botao-link'>Pomodoro</button></Link>
                 </nav>
             </div>
         </div>

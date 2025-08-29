@@ -37,13 +37,13 @@ export default function  Timer () {
             <h2>{minutes}:{seconds}</h2>
                 {!isRunning ? (
                 <>
-                    <button onClick={startCycle}>Iniciar</button>
-                    <button disabled>Parar</button>
+                    <button onClick={startCycle} className="iniciar-button">Iniciar</button>
+                    <button disabled className="parar-button-disabled">Parar</button>
                 </>
                 ) : (
                 <>
-                    <button disabled>Iniciar</button>
-                    <button onClick={stopCycle}>Parar</button>
+                    <button disabled className="iniciar-button-disabled">Iniciar</button>
+                    <button onClick={stopCycle} className="parar-button">Parar</button>
                 </>
                 )}
         </div>
